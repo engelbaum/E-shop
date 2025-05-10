@@ -1,0 +1,21 @@
+
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest  # Utilise la dernière version officielle de MongoDB
+    container_name: mongodb-container  # Nom du conteneur
+    ports:
+      - "27017:27017"  # Expose le port 27017 sur ton hôte
+    volumes:
+      - mongodb-data:/data/db  # Persister les données sur le disque local
+    networks:
+      - mongo-network
+
+volumes:
+  mongodb-data:
+    driver: local
+
+networks:
+  mongo-network:
+    driver: bridge
