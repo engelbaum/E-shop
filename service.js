@@ -10,12 +10,13 @@ const mount = require("./routes");
 
 dotenv.config();
 const app = express();
-app.use(cors());
-app.use(compression());
+
+//app.use(cors());
+//app.use(compression());
 
 app.use(express.json());
 
-if (process.env.NODE_ENV === "devlopment") {
+if (process.env.NODE_ENV === "development") {
   console.log(`mode : ${process.env.NODE_ENV}`);
   app.use(morgan("dev"));
 }
